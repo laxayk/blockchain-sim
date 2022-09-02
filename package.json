@@ -1,0 +1,9 @@
+{
+  "name": "blockchain-sim",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/laxayk/blockchain-sim.git",
+  "author": "laxayk <kaylakshay@gmail.com>",
+  "license": "MIT",
+  "type": "module"
+}
