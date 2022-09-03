@@ -32,4 +32,22 @@ export class Blockchain {
 		}
 		return true;
 	}
+	validate() {
+		if (this.isValid()) return;
+		let index;
+		for (index = 1; index < this.chain.length; index++) {
+			const currentBlock = this.chain[index];
+			const previousBlock = this.chain[index - 1];
+			if (
+				currentBlock.hash !== calculateHash(currentBlock) ||
+				previousBlock.hash !== currentBlock.previousHash
+			) {
+				if (previousBlock.hash !== currentBlock.previousHash) {
+					currentBlock.previousHash = previousBlock.hash;
+				}
+				currentBlock.hash = calculateHash(currentBlock);
+				currentBlock.mine(this.difficulty);
+			}
+		}
+	}
 }
