@@ -12,6 +12,7 @@ export class Blockchain {
 		genesisBlock.hash = "0";
 		return new Blockchain(genesisBlock, [genesisBlock], difficulty);
 	}
+
 	addBlock(data) {
 		const blockData = data;
 		const lastBlock = this.chain[this.chain.length - 1];
@@ -19,6 +20,7 @@ export class Blockchain {
 		newBlock.mine(this.difficulty);
 		this.chain.push(newBlock);
 	}
+
 	isValid() {
 		if (this.chain.length === 1) return true;
 		for (let index = 1; index < this.chain.length; index++) {
@@ -32,8 +34,8 @@ export class Blockchain {
 		}
 		return true;
 	}
+
 	validate() {
-		if (this.isValid()) return;
 		let index;
 		for (index = 1; index < this.chain.length; index++) {
 			const currentBlock = this.chain[index];

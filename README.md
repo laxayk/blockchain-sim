@@ -1,6 +1,3 @@
-# blockchain-sim
+# Blockchain Sim
 
-# Flow
-
-1. Block
-    1. 
+## Flow
